@@ -8,13 +8,15 @@
 </head>
 <body>
 
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/">gCamp</a>
+      <a class="navbar-brand" href="/">gCamp</a>
     </div>
   </div>
 </nav>
+
 
 <div class="container">
 <%= yield %>
@@ -30,10 +32,10 @@
     </div>
 
 <div class="col-md-6 text-right">
-    <%= link_to image_tag("linked_in.jpg", size:"24"), "https://www.linkedin.com/" %>
-    <%= link_to image_tag("git_hub.png", size:"24"), "https://www.github.com/" %>
-    <%= link_to image_tag("twitter.png", size:"24"), "https://www.twitter.com/" %>
-    <%= link_to image_tag("galvanize.png", size:"24"), "https://students.gschool.it/" %>
+    <%= link_to image_tag("linked_in.jpg", class: "img_footer"), "https://www.linkedin.com/" %>
+    <%= link_to image_tag("git_hub.png", class: "img_footer"), "https://www.github.com/" %>
+    <%= link_to image_tag("twitter.png", class: "img_footer"), "https://www.twitter.com/" %>
+    <%= link_to image_tag("galvanize.png", class: "img_footer"), "https://students.gschool.it/" %>
 </div>
 
   </div>
