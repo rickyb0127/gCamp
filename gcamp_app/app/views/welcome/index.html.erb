@@ -9,13 +9,13 @@
   <div class="col-md-4">
     <p class="lead">
       <%=image_tag("gcamp_index_1.jpg", class: "img-responsive")%>
-    </p>
   </div>
   <div class="col-md-4">
     <%=image_tag("gcamp_index_2.jpg", class: "img-responsive")%>
   </div>
   <div class="col-md-4">
     <%=image_tag("gcamp_index_3.jpg", class: "img-responsive")%>
+    </p>
   </div>
 </div>
 
@@ -63,12 +63,16 @@
     <div class="text-muted">
       <em><%= @quotes_array [0][:author] %></em>
     </div>
+
 <p></p>
+
   <p>"<%= @quotes_array [1][:content] %>"</p>
     <div class="text-muted">
       <em><%= @quotes_array [1][:author] %></em>
     </div>
+
 <p></p>
+
   <p>"<%= @quotes_array [2][:content] %>"</p>
     <div class="text-muted">
       <em><%= @quotes_array [2][:author] %></em>
