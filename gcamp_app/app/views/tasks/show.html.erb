@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <div class="notice"><p><%= flash[:notice] %></p></div>
+<% end %>
+
+<%= @task.title %>
+<br>
+
+<%= link_to 'Edit', edit_task_path(@task) %>
+
+<%= link_to "Back", tasks_path %>

@@ -1,0 +1,15 @@
+<h1>Editing Task</h1>
+<h3>Description</h3>
+
+<%= form_for @task do |f| %>
+<p><%= f.label :title %></p>
+<p><%= f.text_field :title %></p>
+
+<%= f.submit "Update task" %>
+
+<br>
+
+<%= link_to "Show", task_path(@task) %> | <%= link_to "Back", task_path(@task) %>
+
+
+<% end %>
