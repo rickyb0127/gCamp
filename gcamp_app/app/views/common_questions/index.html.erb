@@ -16,7 +16,7 @@
 <p></p>
 
     <% @question.each do |question| %>
-    <p><h3><%= question.question %></h3></p>
+    <p><h3><%= content_tag :a, "", name: question.slug %><%= question.question %></h3></p>
     <p><%= question.answer %></p>
     <%= link_to "top", "#" %>
     <% end %>
