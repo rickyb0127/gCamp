@@ -21,6 +21,13 @@
 <div class="container">
 
 
+  <% flash.each do | value | %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+
 <%= yield %>
 
 <div class="page-header">
