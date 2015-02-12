@@ -7,28 +7,29 @@
 <br>
 
 <div class = "container">
-  <form class="form-horizontal">
-    <div class = "row">
-      <div class = "col-sm-10">
-      <%= form_for Task.new do |f| %>
-        <div class="form-group">
-        <%= f.label :description, class: "col-sm-1 control-label" %>
-          <div class = "col-sm-6">
-            <div class = "col-sm-10">
-            <%= f.text_field :title, class: "form-control" %>
-            </div>
-          </div>
+  <div class="form-horizontal">
+
+<div class = "row">
+  <div class = "col-sm-10">
+  <%= form_for Task.new do |f| %>
+    <div class="form-group">
+    <%= f.label :description, class: "col-sm-1 control-label" %>
+      <div class = "col-sm-6">
+        <div class = "col-sm-10">
+        <%= f.text_field :title, class: "form-control" %>
         </div>
       </div>
     </div>
-
-<div class = "row">
-  <div class = "col-md-3 col-md-offset-1">
-    <%= f.submit "Create Task", class: "btn btn-primary"  %>
-    <%= link_to "Cancel", tasks_path, class: "btn btn-default" %>
   </div>
 </div>
 
-      <% end %>
-  </form>
+<div class = "row">
+  <div class = "col-md-3 col-md-offset-1">
+  <%= f.submit "Create Task", class: "btn btn-primary"  %>
+  <%= link_to "Cancel", tasks_path, class: "btn btn-default" %>
+  </div>
 </div>
+
+  </div>
+</div>
+  <% end %>

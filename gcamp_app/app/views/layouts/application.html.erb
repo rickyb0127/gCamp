@@ -22,8 +22,10 @@
 
 
   <% flash.each do | value | %>
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success", role="alert">
+      <div class="text-center">
       <%= flash[:notice] %>
+      </div>
     </div>
   <% end %>
 
