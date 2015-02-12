@@ -1,15 +1,16 @@
-<div class="page-header">
-  <h1><%= @task.title %>
-    <div class="pull-right">
-    <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-primary" %>
-    </div>
-  </h1>
-</div>
-
-<br>
-
+<% if @task.complete %>
+ <div class="page-header">
+   <%= link_to "Edit Task", edit_task_path, class: "btn btn-info pull-right" %>
+   <h1><s><%= @task.title %></s></h1>
+ </div>
+<% else %>
+ <div class="page-header">
+   <%= link_to "Edit Task", edit_task_path, class: "btn btn-info pull-right" %>
+   <h1><%= @task.title %></h1>
+ </div>
+<% end %>
 
 <ol class="breadcrumb">
- <li> <%= link_to "Tasks", tasks_path %> </li>
- <li class="active"> <%= @task.title %> </li>
+ <li><%= link_to "Tasks", tasks_path %></li>
+ <li class="active"><%= @task.title %></li>
 </ol>

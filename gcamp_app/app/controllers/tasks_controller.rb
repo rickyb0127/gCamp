@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.all
+    @task = Task.new
   end
 
   def create
@@ -49,6 +49,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title)
+    params.require(:task).permit(:title, :complete)
   end
 end
