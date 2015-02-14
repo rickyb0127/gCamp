@@ -1,8 +1,11 @@
-<%= link_to "Edit User", edit_user_path, class: "btn btn-info pull-right" %>
-<div class="page-header">
-</div>
 
-<p><%= @user.first_name + @user.last_name %></p>
+<div class = "page-header">
+  <%= link_to "Edit User", edit_user_path, class: "btn btn-info pull-right" %>
+  <h1>New User</h1>
+</div>
+<br>
+
+<p><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></p>
 <p><%= @user.email %></p>
 
 <ol class="breadcrumb">
