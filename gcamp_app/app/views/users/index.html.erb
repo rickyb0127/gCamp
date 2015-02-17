@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -15,6 +16,8 @@
         <% @users.each do |user| %>
         <td><%= user.first_name.capitalize + " " + user.last_name.capitalize %></td>
         <td><%= mail_to user.email %></td>
+
+        <td><%= link_to "Edit", edit_user_path(user) %></td>
       </tr>
         <% end %>
     </tbody>
