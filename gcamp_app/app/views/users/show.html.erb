@@ -1,14 +1,19 @@
 
 <div class = "page-header">
-  <%= link_to "Edit User", edit_user_path, class: "btn btn-info pull-right" %>
-  <h1>User Info</h1>
+  <%= link_to "Edit", edit_user_path, class: "btn btn-info pull-right" %>
+  <h1><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h1>
 </div>
 <br>
 
-<p><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></p>
-<p><%= @user.email %></p>
-
-<ol class="breadcrumb">
- <li><%= link_to "Users", users_path %></li>
- <li class="active"><%= @user.first_name %></li>
-</ol>
+<dl class="dl-horizontal">
+  <dt>First name</dt>
+    <dd><%= @user.first_name.capitalize %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Last name </dt>
+    <dd><%= @user.last_name.capitalize %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt>Email </dt>
+    <dd><%= mail_to @user.email %></dd>
+</dl>
