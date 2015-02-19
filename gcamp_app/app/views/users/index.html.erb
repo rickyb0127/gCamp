@@ -1,25 +1,25 @@
 <div class = "page-header">
-<h1>Users <%= link_to "New User", new_user_path(@user), class: "btn btn-info pull-right" %></h1>
+  <h1>Users <%= link_to "New User", new_user_path(@user), class: "btn btn-info pull-right" %></h1>
 </div>
-<table class="table">
 
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-  </thead>
-
-    <tbody>
+  <table class="table">
+    <thead>
       <tr>
-        <% @users.each do |user| %>
-        <td><%= link_to user.first_name.capitalize + " " + user.last_name.capitalize, user_path(user) %></td>
-        <td><%= mail_to user.email %></td>
-
-        <td><%= link_to "Edit", edit_user_path(user) %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
       </tr>
-        <% end %>
-    </tbody>
+    </thead>
 
-</table>
+      <tbody>
+        <tr>
+          <% @users.each do |user| %>
+          <td><%= link_to user.first_name.capitalize + " " + user.last_name.capitalize, user_path(user) %></td>
+          <td><%= mail_to user.email %></td>
+
+          <td><%= link_to "Edit", edit_user_path(user) %></td>
+        </tr>
+          <% end %>
+      </tbody>
+
+  </table>
