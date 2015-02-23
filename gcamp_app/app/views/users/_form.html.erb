@@ -1,43 +1,59 @@
 <div class = "container">
   <%= form_for @user, html: {class:"form-horizontal"} do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class = "row">
+      <div class = "col-md-offset-2 col-md-6">
+        <div class = "alert alert-danger">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this article from being saved:</h2>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
     <div class = "form-group">
-      <%= f.label :first_name, "First Name", class: "col-sm-2 control-label" %>
-        <div class="col-sm-4">
+      <%= f.label :first_name, "First Name", class: "col-md-2 control-label" %>
+        <div class="col-md-4">
           <%= f.text_field :first_name, class: "form-control" %>
         </div>
     </div>
 
     <div class = "form-group">
-      <%= f.label :last_name, "Last Name", class: "col-sm-2 control-label" %>
-        <div class="col-sm-4">
+      <%= f.label :last_name, "Last Name", class: "col-md-2 control-label" %>
+        <div class="col-md-4">
           <%= f.text_field :last_name, class: "form-control" %>
         </div>
     </div>
 
     <div class = "form-group">
-      <%= f.label :email, class: "col-sm-2 control-label" %>
-        <div class="col-sm-4">
+      <%= f.label :email, class: "col-md-2 control-label" %>
+        <div class="col-md-4">
           <%= f.email_field :email, class: "form-control" %>
         </div>
     </div>
 
     <div class = "form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-md-offset-2 col-md-10">
         <%= f.submit class: "btn btn-primary"  %>
           <%= link_to "Cancel", users_path, class: "btn btn-default" %>
       </div>
     </div>
 
     <% if params[:action] == "edit" %>
-    <div class = "form-group">
-      <div class = "col-sm-offset-2 col-sm-4">
-        <div class = "well">
-          <div class = "col-sm-offset-4">
-            <%= link_to "Delete User", user_path(@user), method: :delete, class: "btn btn-danger" %>
+      <div class = "form-group">
+        <div class = "col-md-offset-2 col-md-4">
+          <div class = "well">
+            <div class = "col-md-offset-4">
+              <%= link_to "Delete User", user_path(@user), method: :delete, class: "btn btn-danger" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
   <% end %>

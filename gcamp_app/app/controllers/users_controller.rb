@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       flash[:notice] = "User was successfully created"
       redirect_to action: "index"
     else
-      @user = User.new(user_params)
       render :new
     end
   end

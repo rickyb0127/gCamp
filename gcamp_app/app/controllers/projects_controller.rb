@@ -13,7 +13,6 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project was successfully created"
       redirect_to project_path(@project)
     else
-      @project = Project.new(project_params)
       render :new
     end
   end
