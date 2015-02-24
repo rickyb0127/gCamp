@@ -1,7 +1,7 @@
 <% if @task.complete %>
  <div class="page-header">
    <%= link_to "Edit Task", edit_task_path, class: "btn btn-info pull-right" %>
-    <h1><s><%= @task.title %></s></h1>
+    <h1><s><%= @task.description %></s></h1>
       <p>Due On:
         <% if @task.due_date %>
         <%= @task.due_date.strftime("%m/%d/%Y") %>
@@ -11,7 +11,7 @@
 <% else %>
  <div class="page-header">
    <%= link_to "Edit Task", edit_task_path, class: "btn btn-info pull-right" %>
-    <h1><%= @task.title %></h1>
+    <h1><%= @task.description %></h1>
       <p>Due On:
         <% if @task.due_date %>
         <%= @task.due_date.strftime("%m/%d/%Y") %>
@@ -21,5 +21,5 @@
 
 <ol class="breadcrumb">
  <li><%= link_to "Tasks", tasks_path %></li>
- <li class="active"><%= @task.title %></li>
+ <li class="active"><%= @task.description %></li>
 </ol>

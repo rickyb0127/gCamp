@@ -14,7 +14,7 @@
       <% @tasks.each do |task| %>
       <% if task.complete %>
         <tr>
-          <td><s><%= link_to task.title, task_path(task) %></s></td>
+          <td><s><%= link_to task.description, task_path(task) %></s></td>
             <% if task.due_date %>
               <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
             <% else %>
@@ -30,7 +30,7 @@
 
       <% else %>
         <tr>
-          <td><%= link_to task.title, task_path(task) %></td>
+          <td><%= link_to task.description, task_path(task) %></td>
             <% if task.due_date %>
               <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
             <% else %>
