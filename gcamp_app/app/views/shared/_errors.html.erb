@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <div class = "row">
+    <div class = "col-md-offset-2 col-md-6">
+      <div class = "alert alert-danger">
+        <h2><%= pluralize(object.errors.count, "error") %> prohibited this article from being saved:</h2>
+        <ul>
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
