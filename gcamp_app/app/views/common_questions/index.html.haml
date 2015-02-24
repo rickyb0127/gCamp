@@ -1,0 +1,16 @@
+.page-header
+  %h1 Frequently Asked Questions
+
+.ul
+  .container
+    - @question.each do |question|
+      %li= link_to question.question, "#"+question.slug
+
+%p
+  - @question.each do |question|
+    %p
+    %h3
+      = content_tag :a, "", name: question.slug
+      = question.question
+    %p= question.answer
+    = link_to "top", "#"

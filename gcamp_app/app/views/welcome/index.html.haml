@@ -1,0 +1,53 @@
+.jumbotron
+  .jumbo_title
+    %h1 gCamp
+    %h3{:style => "color:gray"} Your life, organized.
+
+.row
+  .col-md-4
+    =image_tag "gcamp_index_1.jpg", class: "img-responsive"
+    %p.lead
+  .col-md-4
+    =image_tag "gcamp_index_2.jpg", class: "img-responsive"
+    %p.lead
+  .col-md-4
+    =image_tag "gcamp_index_3.jpg", class: "img-responsive"
+    %p.lead
+
+.row
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Tasks
+      .panel-body
+        Grouped by projects and lists.  Just the way you like’em
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Permissions
+      .panel-body
+        Fine-grained persmissions
+  .col-md-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Comments
+      .panel-body
+        %ul
+          %li Comment on tasks and documents
+          %li Get email notifications
+
+.quotes
+  %p
+    "#{@quotes_array [0][:content]}"
+  .text-muted
+    %em= @quotes_array [0][:author]
+  %p
+  %p
+    "#{@quotes_array [1][:content]}"
+  .text-muted
+    %em= @quotes_array [1][:author]
+  %p
+  %p
+    "#{@quotes_array [2][:content]}"
+  .text-muted
+    %em= @quotes_array [2][:author]
