@@ -1,10 +1,6 @@
 class TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :update, :destroy]
 
-  def get_task
-    @task = Task.find(params[:id])
-  end
-
   def index
     @tasks = Task.all
   end
@@ -46,6 +42,10 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def get_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params
     params.require(:task).permit(:description, :complete, :due_date)
