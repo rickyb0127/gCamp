@@ -1,15 +1,17 @@
 class AuthenticationController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       redirect_to "/"
       flash[:notice] = "You are successfully signed in"
     else
-      flash[:error] = "something went wrong"
+      @user = User.new
+      @user.errors[:email] << ' / Password combination is invalid'
       render :new
     end
   end

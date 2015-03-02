@@ -5,7 +5,16 @@
     <h3>Sign into gCamp!</h3>
   </div>
 
-  <%= form_for sign_in_path do |f| %>
+  <%= form_tag sign_in_path do |f| %>
+
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.sort_by {|n| n}.each do |m| %>
+        <div class = "text-danger">
+          <p><%= m %></p>
+        </div>
+    <% end %>
+    <% end %>
+
     <div class = "form-group">
       <%= label_tag :email %>
       <%= text_field_tag :email, nil, class: "form-control" %>

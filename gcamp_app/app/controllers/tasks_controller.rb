@@ -3,6 +3,10 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    unless current_user
+      redirect_to sign_in_path
+      flash[:error] = "You must sign in"
+    end
   end
 
   def show
