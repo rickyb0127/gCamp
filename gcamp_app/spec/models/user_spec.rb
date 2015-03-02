@@ -6,7 +6,9 @@ describe User do
     @user = User.create(
       first_name: "Joe",
       last_name: "Random",
-      email: "jr@aol.com"
+      email: "jr@aol.com",
+      password: "stuff",
+      password_confirmation: "stuff"
     )
   end
 
@@ -20,7 +22,9 @@ describe User do
     user = User.create(
       first_name: "Ted",
       last_name: "Johnson",
-      email: "jr@aol.com"
+      email: "jr@aol.com",
+      password: "new",
+      password_confirmation: "new"
       )
 
     expect(user.errors[:email]).to include("has already been taken")
