@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-feature 'Tasks' do
+feature 'Guests' do
 
-  scenario 'User can see a flash message' do
-    
+  scenario 'Guest can sign up successfully' do
+
     visit root_path
     click_on 'Sign Up'
     fill_in 'First Name', with: 'Test'
@@ -13,16 +13,9 @@ feature 'Tasks' do
     fill_in 'Password Confirmation', with: 'new'
     within (".well") do click_on 'Sign Up'
     end
-    Task.create!(
-      description: 'My task'
-    )
 
-    visit tasks_path
-    click_on 'Edit'
-    fill_in 'Description', with: 'new stuff'
-    click_on 'Update Task'
-
-    expect(page).to have_content('Task was successfully updated')
+    expect(current_path).to eq '/'
+    expect(page).to have_content('You have successfully signed up')
   end
-
+  
 end

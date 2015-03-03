@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature 'Tasks' do
+feature 'Users' do
 
-  scenario 'User can see a flash message' do
+  scenario 'User can sign out successfully' do
     
     visit root_path
     click_on 'Sign Up'
@@ -13,16 +13,12 @@ feature 'Tasks' do
     fill_in 'Password Confirmation', with: 'new'
     within (".well") do click_on 'Sign Up'
     end
-    Task.create!(
-      description: 'My task'
-    )
 
-    visit tasks_path
-    click_on 'Edit'
-    fill_in 'Description', with: 'new stuff'
-    click_on 'Update Task'
+    visit root_path
+    click_on 'Sign Out'
 
-    expect(page).to have_content('Task was successfully updated')
+    expect(current_path).to eq '/'
+    expect(page).to have_content('You have successfully signed out')
   end
 
 end
