@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @task = Task.new
     unless current_user
       redirect_to sign_in_path
       flash[:error] = "You must sign in"
@@ -36,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @projects = Project.all
     @project = Project.find(params[:id])
   end
 
