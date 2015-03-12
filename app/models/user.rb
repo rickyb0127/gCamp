@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, confirmation: true
 
-  has_many :memberships
-  has_many :projects, through: :memberships
-  has_many :comments
+  has_many :memberships, dependent: :destroy
+  has_many :projects, through: :memberships, dependent: :destroy
+  has_many :comments, dependent: :nullify
 
   def full_name
     first_name.capitalize + " " + last_name.capitalize

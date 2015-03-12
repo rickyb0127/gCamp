@@ -21,7 +21,11 @@
 <% @comments.each do |comment| %>
   <div class="row">
     <div class="col-md-3">
-      <p><%= link_to comment.user.full_name, user_path(comment.user_id) %></p>
+      <% if comment.user_id? %>
+        <p><%= link_to comment.user.full_name, user_path(comment.user_id) %></p>
+      <% else %>
+        <p>Deleted User</p>
+      <% end %>
       <div class="text-muted">
         <p><%= time_ago_in_words(comment.created_at) %></p>
       </div>
@@ -35,7 +39,7 @@
 <%= form_for [@project, @task, @comment], html: {class: "form-horizontal"} do |f| %>
   <div class="col-md-9 col-md-offset-3">
     <div class="form-group">
-      <%= f.text_area :body, class: "col-md-9" %>
+      <%= f.text_area :body, class: "col-md-9 form-control" %>
     </div>
     <div class="form-group">
       <%= f.submit "Add Comment", class: "btn btn-primary" %>
