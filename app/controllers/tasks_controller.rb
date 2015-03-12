@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_project, only: [:index, :show, :new, :create, :edit]
 
   def index
-    @tasks = @project.tasks
+    @tasks = @project.tasks.all
     unless current_user
       redirect_to sign_in_path
       flash[:error] = "You must sign in"
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to tasks_path
+    redirect_to project_tasks_path
   end
 
   private

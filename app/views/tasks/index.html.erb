@@ -9,51 +9,50 @@
   <li class="active">Tasks</li>
 </ol>
 
-  <table class="table">
+<table class="table">
 
-    <thead>
+  <thead>
+    <th>Description</th>
+    <th>Due On</th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+    <% if task.complete %>
       <tr>
-        <th>Description</th>
-        <th>Due On</th>
-        <th></th>
+        <td><s><%= link_to task.description, project_task_path(@project, task) %> <span class="badge"><%= task.comments.count %></span></s></td>
+        <% if task.due_date %>
+          <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
+        <% else %>
+          <td><%= "TBD" %></td>
+        <% end %>
+          <td>
+            <div class= "text-right">
+              <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-info" %>
+              <%= link_to ' ', project_task_path(@project, task), method: :delete, class: "glyphicon glyphicon-remove" %>
+            </div>
+          </td>
+        </tr>
+
+    <% else %>
+
+      <tr>
+        <td><%= link_to task.description, project_task_path(@project, task) %> <span class="badge"><%= task.comments.count %></span></td>
+        <% if task.due_date %>
+          <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
+        <% else %>
+          <td><%= "TBD" %></td>
+        <% end %>
+          <td>
+            <div class= "text-right">
+              <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-info" %>
+              <%= link_to ' ', project_task_path(@project, task), method: :delete, class: "glyphicon glyphicon-remove" %>
+            </div>
+        </td>
       </tr>
-    </thead>
 
-    <tbody>
-      <% @tasks.each do |task| %>
-      <% if task.complete %>
-        <tr>
-          <td><s><%= link_to task.description, project_task_path(task) %></s></td>
-            <% if task.due_date %>
-              <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
-            <% else %>
-              <td><%= "TBD" %></td>
-            <% end %>
-              <td>
-                <div class= "text-right">
-                  <%= link_to 'Edit', edit_task_path(task), class: "btn btn-info" %>
-                  <%= link_to 'Delete', task_path(task), method: :delete, class: "btn btn-danger" %>
-                </div>
-              </td>
-          </tr>
-
-      <% else %>
-        <tr>
-          <td><%= link_to task.description, project_task_path(@project, task) %></td>
-            <% if task.due_date %>
-              <td><%= task.due_date.strftime("%m/%d/%Y") %></td>
-            <% else %>
-              <td><%= "TBD" %></td>
-            <% end %>
-              <td>
-                <div class= "text-right">
-                  <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-info" %>
-                  <%= link_to 'Delete', project_task_path(@project, task), method: :delete, class: "btn btn-danger" %>
-                </div>
-              </td>
-          </tr>
-
-      <% end %>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
