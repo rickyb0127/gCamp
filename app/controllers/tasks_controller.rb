@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
+  before_action :set_project, only: [:index, :show, :new, :create, :edit]
 
   def index
-    @project = Project.find(params[:project_id])
     @tasks = @project.tasks
     unless current_user
       redirect_to sign_in_path
@@ -10,17 +10,16 @@ class TasksController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
+    @comments = @task.comments.all
+    @comment = @task.comments.new
   end
 
   def new
-    @project = Project.find(params[:project_id])
     @task = @project.tasks.new
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @task = @project.tasks.new(task_params)
     if @task.save
       flash[:notice] = "Task was successfully created"
@@ -31,7 +30,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
   end
 
@@ -52,6 +50,10 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
 
   def task_params
     params.require(:task).permit(:description, :complete, :due_date)
