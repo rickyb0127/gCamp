@@ -68594,3 +68594,67 @@ Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 
 
 
 Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:15:27 -0600
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."id" FROM "users"
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments"."user_id" != 57)[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36m (0.4ms)[0m  [1mSELECT "users"."id" FROM "users"[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = 57
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mComment Load (1.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE (57)[0m
+PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (57)
+                                                   ^
+: SELECT "comments".* FROM "comments" WHERE (57)
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE (57)
+PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "comments".* FROM "comments" WHERE (57)
+                                                   ^
+: SELECT "comments".* FROM "comments" WHERE (57)
+  [1m[36mTask Load (0.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mTask Load (0.8ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (nil)
+PG::UndefinedColumn: ERROR:  column "nil" does not exist
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE (nil)
+                                             ^
+: SELECT "tasks".* FROM "tasks" WHERE (nil)
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mTask Load (0.9ms)[0m  SELECT "tasks".* FROM "tasks" WHERE (30)
+PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE (30)
+                                             ^
+: SELECT "tasks".* FROM "tasks" WHERE (30)
+  [1m[36mTask Load (0.9ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE (30)[0m
+PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE (30)
+                                             ^
+: SELECT "tasks".* FROM "tasks" WHERE (30)
+  [1m[36mMembership Load (0.4ms)[0m  [1mSELECT "memberships".* FROM "memberships"[0m
+  [1m[35mMembership Load (0.4ms)[0m  SELECT "memberships".* FROM "memberships"
+  [1m[36mTask Load (0.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mTask Load (1.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE (nil)[0m
+PG::UndefinedColumn: ERROR:  column "nil" does not exist
+LINE 1: SELECT "tasks".* FROM "tasks" WHERE (nil)
+                                             ^
+: SELECT "tasks".* FROM "tasks" WHERE (nil)
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" IS NULL
+  [1m[36mMembership Load (0.4ms)[0m  [1mSELECT "memberships".* FROM "memberships"[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" IS NULL
+  [1m[36m (0.3ms)[0m  [1mSELECT "users"."id" FROM "users"[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments"."user_id" != 57)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mMembership Load (0.4ms)[0m  SELECT "memberships".* FROM "memberships"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("user_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 800], ["body", "word"], ["created_at", "2015-03-13 19:58:45.222251"], ["updated_at", "2015-03-13 19:58:45.222251"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  SELECT "users"."id" FROM "users"
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments"."user_id" != 57)[0m
+  [1m[35m (0.4ms)[0m  SELECT "users"."id" FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT "users"."id" FROM "users"[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments"."user_id" != 57)
+  [1m[36m (0.4ms)[0m  [1mSELECT "users"."id" FROM "users"[0m
+  [1m[35mSQL (1.3ms)[0m  UPDATE "comments" SET "user_id" = NULL WHERE ("comments"."user_id" != 57)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
