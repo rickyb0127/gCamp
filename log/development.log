@@ -68350,3 +68350,247 @@ Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 
 
 
 Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:11:23 -0600
+
+
+Started GET "/" for ::1 at 2015-03-13 13:13:16 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (3.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/gcamp_index_1-42681a59210ae4498e13d92b51f0bc91.jpg" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/gcamp_index_2-b3e6093502ae28d398217b6b468d43f0.jpg" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/gcamp_index_3-0678c5e6c82af4617e22564d6c96f67c.jpg" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:13:16 -0600
+
+
+Started GET "/projects" for ::1 at 2015-03-13 13:13:19 -0600
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."project_id" = $1  [["project_id", 30]]
+  Rendered projects/index.html.erb within layouts/application (2.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:13:19 -0600
+
+
+Started GET "/projects/30" for ::1 at 2015-03-13 13:13:21 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 30]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."project_id" = $1  [["project_id", 30]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "memberships" WHERE "memberships"."project_id" = $1[0m  [["project_id", 30]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "memberships" WHERE "memberships"."project_id" = $1  [["project_id", 30]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 30]]
+  Rendered projects/show.html.erb within layouts/application (8.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:13:21 -0600
+
+
+Started GET "/projects/30/tasks" for ::1 at 2015-03-13 13:13:22 -0600
+Processing by TasksController#index as HTML
+  Parameters: {"project_id"=>"30"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 30]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1  [["project_id", 30]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."task_id" = $1[0m  [["task_id", 140]]
+  Rendered tasks/index.html.erb within layouts/application (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-3b21d33cc4addb2ebfe7f625dad8559b.woff2" for ::1 at 2015-03-13 13:13:22 -0600
+
+
+Started GET "/projects/30/tasks/140" for ::1 at 2015-03-13 13:13:23 -0600
+Processing by TasksController#show as HTML
+  Parameters: {"project_id"=>"30", "id"=>"140"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 30]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1 AND "tasks"."id" = $2 LIMIT 1[0m  [["project_id", 30], ["id", 140]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."task_id" = $1  [["task_id", 140]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  Rendered tasks/show.html.erb within layouts/application (6.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+Completed 200 OK in 55ms (Views: 48.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:13:23 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:13:23 -0600
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "comments" ("body", "created_at", "updated_at", "task_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "i am a comment"], ["created_at", "2015-03-13 03:54:25.000000"], ["updated_at", "2015-03-13 03:54:25.000000"], ["task_id", 140]]
+  [1m[35m (0.6ms)[0m  COMMIT
+
+
+Started GET "/projects/30/tasks/140" for ::1 at 2015-03-13 13:15:27 -0600
+Processing by TasksController#show as HTML
+  Parameters: {"project_id"=>"30", "id"=>"140"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 30]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1 AND "tasks"."id" = $2 LIMIT 1[0m  [["project_id", 30], ["id", 140]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."task_id" = $1  [["task_id", 140]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  Rendered tasks/show.html.erb within layouts/application (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 57]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 57]]
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/application-0b8a7c321dc9dfd58e49a9aef6a27d8e.css?body=1" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/application-517cbb7f7d3a68a920fb980d1793b5ec.js?body=1" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/linked_in-be26cb29c0af42ae74d63ed9f74ee14f.jpg" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/git_hub-a9db4efaf5c8a481786e2c52c5706f23.png" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/galvanize-b3164dc34b8f34c4324df34cf998824a.png" for ::1 at 2015-03-13 13:15:27 -0600
+
+
+Started GET "/assets/twitter-8d17e7d8d267de8034c3b20dd7e5c896.png" for ::1 at 2015-03-13 13:15:27 -0600
