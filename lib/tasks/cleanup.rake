@@ -34,10 +34,9 @@ namespace :cleanup do
     Membership.where(project_id = nil).destroy_all
     Membership.where(task_id = nil).destroy_all
   end
+
+  desc "Sets the user_id of comments to nil if their users have been deleted"
+  task set_comments_user_to_nil_without_users: :environment do
+    Comment.where(user_id = nil).destroy_all
+  end
 end
-
-
-# desc "Sets the user_id of comments to nil if their users have been deleted"
-# task set_comments_user_to_nil_without_users: :environment do
-#   Comment.where(user_id = nil).
-# end
