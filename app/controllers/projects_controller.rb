@@ -1,11 +1,9 @@
 class ProjectsController < ApplicationController
+  before_action :authorize
+  
   def index
     @projects = Project.all
     @task = Task.new
-    unless current_user
-      redirect_to sign_in_path
-      flash[:error] = "You must sign in"
-    end
   end
 
   def new
