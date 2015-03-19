@@ -14,8 +14,8 @@ feature 'Guests' do
     within (".well") do click_on 'Sign Up'
     end
 
-    expect(current_path).to eq '/'
+    expect(current_path).to eq new_project_path
     expect(page).to have_content('You have successfully signed up')
   end
-  
+
 end
