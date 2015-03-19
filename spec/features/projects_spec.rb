@@ -15,11 +15,11 @@ feature 'Projects' do
     end
 
     visit projects_path
-    click_on 'New Project'
+    within (".new-project-header") do click_on 'New Project'
+    end
     fill_in 'Name', with: 'test'
     click_on 'Create Project'
 
     expect(page).to have_content('Project was successfully created')
   end
-
 end

@@ -22,7 +22,7 @@ feature 'Users' do
     within (".well") do click_on 'Sign In'
     end
 
-    expect(current_path).to eq '/'
+    expect(current_path).to eq projects_path
     expect(page).to have_content('You are successfully signed in')
   end
 
