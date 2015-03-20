@@ -19,7 +19,6 @@ feature 'Tasks' do
     end
     fill_in 'Name', with: 'test'
     click_on 'Create Project'
-    click_on "Tasks"
     click_on "New Task"
     fill_in 'Description', with: "stuff"
     fill_in "Due", with: '2015-01-01'

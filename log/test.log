@@ -33958,3 +33958,977 @@ Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.4ms)
   [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1
   [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by AboutController#index as HTML
+  Rendered about/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Awesome Project"], ["created_at", "2015-03-19 21:57:04.621965"], ["updated_at", "2015-03-19 21:57:04.621965"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by MembershipsController#index as HTML
+  Parameters: {"project_id"=>"244"}
+  [1m[35mProject Load (0.3ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 244]]
+  Rendered memberships/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 39ms (Views: 7.4ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "memberships"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Awesome Project"], ["created_at", "2015-03-19 21:57:04.673588"], ["updated_at", "2015-03-19 21:57:04.673588"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jp@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Joe"], ["last_name", "Person"], ["email", "jp@example.com"], ["password_digest", "$2a$04$ZKgH8u0PivtPLTLJE1igwe99Kd4s/Fci5vUZZmfZo2Lm1mrNUIqWa"], ["created_at", "2015-03-19 21:57:04.687278"], ["updated_at", "2015-03-19 21:57:04.687278"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by MembershipsController#create as HTML
+  Parameters: {"membership"=>{"project_id"=>"245", "user_id"=>"542", "role"=>"Member"}, "project_id"=>"245"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 245]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mMembership Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 542 AND "memberships"."project_id" = 245) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memberships" ("user_id", "project_id", "role") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 542], ["project_id", 245], ["role", "Member"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 542]]
+Redirected to http://test.host/projects/245/memberships
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "memberships"[0m
+  [1m[35mMembership Load (0.3ms)[0m  SELECT  "memberships".* FROM "memberships"  ORDER BY "memberships"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by TermsController#index as HTML
+  Rendered terms/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (10.7ms)
+  Rendered layouts/_public.html.erb (21.8ms)
+Completed 200 OK in 48ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 15ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$738W1x.LIE5KLoq/4uDKuO6vFsQ9namDxdpu0/fNCOYS9Dg7g1Z1i"], ["created_at", "2015-03-19 21:57:04.812111"], ["updated_at", "2015-03-19 21:57:04.812111"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  Rendered shared/_errors.html.erb (0.4ms)
+  Rendered projects/_form.html.erb (3.8ms)
+  Rendered projects/new.html.erb within layouts/application (6.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.5ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+Completed 200 OK in 11ms (Views: 5.2ms | ActiveRecord: 1.4ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (1.0ms)
+  Rendered projects/new.html.erb within layouts/application (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.5ms)
+Started POST "/projects" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"test"}, "commit"=>"Create Project"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "test"], ["created_at", "2015-03-19 21:57:04.879824"], ["updated_at", "2015-03-19 21:57:04.879824"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mMembership Exists (0.2ms)[0m  SELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 543 AND "memberships"."project_id" = 246) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("user_id", "role", "project_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 543], ["role", "Owner"], ["project_id", 246]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/246/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+Started GET "/projects/246/tasks" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by TasksController#index as HTML
+  Parameters: {"project_id"=>"246"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 246]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 246]]
+  Rendered tasks/index.html.erb within layouts/application (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 543]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 543]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 543]]
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_public.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_public.html.erb (0.9ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$xTvuN8IHRATuRaxLjHfJf.cNlDF96Cn5pvLc3CG0OQPKBduvLgV8u"], ["created_at", "2015-03-19 21:57:04.934863"], ["updated_at", "2015-03-19 21:57:04.934863"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 544]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.8ms)
+  Rendered projects/new.html.erb within layouts/application (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 544]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 544]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 544]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 544]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 544]]
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+Started GET "/sign-out" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by AuthenticationController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-in" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by AuthenticationController#new as HTML
+  Rendered authentication/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+Started POST "/sign-in" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by AuthenticationController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"testman@example.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "testman@example.com"]]
+Redirected to http://www.example.com/projects
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 544]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 544]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 544]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 544]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 544]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 544]]
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:04 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$bloJoqci79mAYOjpKGUFjeGZcnhEPOPve3R4jL7pqLudD2XvH7S1K"], ["created_at", "2015-03-19 21:57:04.999736"], ["updated_at", "2015-03-19 21:57:04.999736"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 545]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 545]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 545]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 545]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 545]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 545]]
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 545]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 545]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 545]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 545]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 545]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+Started GET "/sign-out" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by AuthenticationController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_public.html.erb (0.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$XwZn5KYd01dTr.5pdIlN0.IC.SbWy7FgeLx5iO7ogSd6fo5CA3MoK"], ["created_at", "2015-03-19 21:57:05.040617"], ["updated_at", "2015-03-19 21:57:05.040617"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 546]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.8ms)
+  Rendered projects/new.html.erb within layouts/application (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 546]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 546]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 546]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 546]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 546]]
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$IzR1UQTVFW07s9Ilxavq9.84lfVG4ZzxUN4h7vq4Gkjdv3dhvHM7O"], ["created_at", "2015-03-19 21:57:05.069849"], ["updated_at", "2015-03-19 21:57:05.069849"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.8ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started POST "/projects" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"test"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test"], ["created_at", "2015-03-19 21:57:05.093974"], ["updated_at", "2015-03-19 21:57:05.093974"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mMembership Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 547 AND "memberships"."project_id" = 247) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("user_id", "role", "project_id") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 547], ["role", "Owner"], ["project_id", 247]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/247/tasks
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+Started GET "/projects/247/tasks" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by TasksController#index as HTML
+  Parameters: {"project_id"=>"247"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 247]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1  [["project_id", 247]]
+  Rendered tasks/index.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 547]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 547]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 547]]
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_public.html.erb (1.1ms)
+Completed 200 OK in 4ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$HDkfm8mBub4SFcZrzdsUaeqLzFU2.vvPiT9DA5c7YTgI/CbaDKScW"], ["created_at", "2015-03-19 21:57:05.130972"], ["updated_at", "2015-03-19 21:57:05.130972"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+Started GET "/users" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.6ms)
+Started GET "/users/548/edit" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"548"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered users/_form.html.erb (4.2ms)
+  Rendered users/edit.html.erb within layouts/application (6.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+Started PATCH "/users/548" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Joke", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"548"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'testman@example.com' AND "users"."id" != 548) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "first_name" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["first_name", "Joke"], ["password_digest", "$2a$04$NUOSusEECbJC/W7cBtU/5./xz8yypDgOGDAfdZnUGXisBYYQTB3zW"], ["updated_at", "2015-03-19 21:57:05.186947"], ["id", 548]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+Started GET "/users" for 127.0.0.1 at 2015-03-19 15:57:05 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 548]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 548]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 548]]
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Project X"], ["created_at", "2015-03-19 21:57:05.201619"], ["updated_at", "2015-03-19 21:57:05.201619"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "My Task"], ["created_at", "2015-03-19 21:57:05.204886"], ["updated_at", "2015-03-19 21:57:05.204886"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Joe"], ["last_name", "Random"], ["email", "jr@aol.com"], ["password_digest", "$2a$04$22CfjIelb353GHelgmjVuOe/nprbQua3CyNUsxiXq/3zGj2Wt1jTC"], ["created_at", "2015-03-19 21:57:05.210406"], ["updated_at", "2015-03-19 21:57:05.210406"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."email" = 'jr@aol.com' AND "users"."id" != 549) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Joe"], ["last_name", "Random"], ["email", "jr@aol.com"], ["password_digest", "$2a$04$iIQOXRUJZDIH9iFsmLRNTeWKzrzE0yeolZrxhkGcoWyGYzy7R9Kdi"], ["created_at", "2015-03-19 21:57:05.216329"], ["updated_at", "2015-03-19 21:57:05.216329"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by AboutController#index as HTML
+  Rendered about/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Awesome Project"], ["created_at", "2015-03-19 22:00:18.867774"], ["updated_at", "2015-03-19 22:00:18.867774"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by MembershipsController#index as HTML
+  Parameters: {"project_id"=>"249"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 249]]
+  Rendered memberships/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 25ms (Views: 6.2ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "memberships"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Awesome Project"], ["created_at", "2015-03-19 22:00:18.901120"], ["updated_at", "2015-03-19 22:00:18.901120"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jp@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Joe"], ["last_name", "Person"], ["email", "jp@example.com"], ["password_digest", "$2a$04$ySNZ7OfHciiYIQuebSyas.duzS7G71/PI/yajIXynKQam7dNmlSLi"], ["created_at", "2015-03-19 22:00:18.914235"], ["updated_at", "2015-03-19 22:00:18.914235"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by MembershipsController#create as HTML
+  Parameters: {"membership"=>{"project_id"=>"250", "user_id"=>"551", "role"=>"Member"}, "project_id"=>"250"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 250]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mMembership Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 551 AND "memberships"."project_id" = 250) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memberships" ("user_id", "project_id", "role") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 551], ["project_id", 250], ["role", "Member"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 551]]
+Redirected to http://test.host/projects/250/memberships
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "memberships"[0m
+  [1m[35mMembership Load (0.3ms)[0m  SELECT  "memberships".* FROM "memberships"  ORDER BY "memberships"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by TermsController#index as HTML
+  Rendered terms/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:18 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (9.1ms)
+  Rendered layouts/_public.html.erb (22.0ms)
+Completed 200 OK in 43ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$nWCsXGaLkoU0mipqBYHLO.pbhbUeVLKN1oLFhXmdbSS4wMRv0Ms8u"], ["created_at", "2015-03-19 22:00:19.036504"], ["updated_at", "2015-03-19 22:00:19.036504"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  Rendered shared/_errors.html.erb (0.4ms)
+  Rendered projects/_form.html.erb (4.3ms)
+  Rendered projects/new.html.erb within layouts/application (6.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.5ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 1.4ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (1.1ms)
+  Rendered projects/new.html.erb within layouts/application (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.4ms)
+Started POST "/projects" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"test"}, "commit"=>"Create Project"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "test"], ["created_at", "2015-03-19 22:00:19.106293"], ["updated_at", "2015-03-19 22:00:19.106293"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mMembership Exists (0.2ms)[0m  SELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 552 AND "memberships"."project_id" = 251) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("user_id", "role", "project_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 552], ["role", "Owner"], ["project_id", 251]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/251/tasks
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+Started GET "/projects/251/tasks" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by TasksController#index as HTML
+  Parameters: {"project_id"=>"251"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 251]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1[0m  [["project_id", 251]]
+  Rendered tasks/index.html.erb within layouts/application (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 552]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 552]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 552]]
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$sg5HxTGWiL/7BhOTKiqcrOZVFAoJrPvFNhMoFx0eiGC9Vm8FTnFq."], ["created_at", "2015-03-19 22:00:19.154994"], ["updated_at", "2015-03-19 22:00:19.154994"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 553]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 553]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 553]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 553]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 553]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 553]]
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+Started GET "/sign-out" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by AuthenticationController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+Started GET "/sign-in" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by AuthenticationController#new as HTML
+  Rendered authentication/new.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+Started POST "/sign-in" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by AuthenticationController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>"testman@example.com", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "testman@example.com"]]
+Redirected to http://www.example.com/projects
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 553]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 553]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 553]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 553]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 553]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 553]]
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$BQFrItociJZKNtwxtX3g.u4ra0OHHAXTiwEGxj.3kBv.Rn3wJPLDC"], ["created_at", "2015-03-19 22:00:19.224518"], ["updated_at", "2015-03-19 22:00:19.224518"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 554]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.8ms)
+  Rendered projects/new.html.erb within layouts/application (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 554]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 554]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 554]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 554]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 554]]
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 554]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 554]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 554]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 554]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 554]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+Started GET "/sign-out" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by AuthenticationController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered layouts/_public.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_public.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$/z2v7HT6nK4uQ.1zF/sZH.KaJZxnUo4tHh1QkC1dgP9XFK7kbvkv."], ["created_at", "2015-03-19 22:00:19.265630"], ["updated_at", "2015-03-19 22:00:19.265630"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 555]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 555]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 555]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 555]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 555]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 555]]
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.7ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_public.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$u/yK2swK/VInAOMTD.kbvefhayVYtQM3QElH90Obxbbz9qrsIHAVu"], ["created_at", "2015-03-19 22:00:19.297067"], ["updated_at", "2015-03-19 22:00:19.297067"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (1.1ms)
+  Rendered projects/new.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+Started GET "/projects" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (0.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered projects/_form.html.erb (0.8ms)
+  Rendered projects/new.html.erb within layouts/application (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Started POST "/projects" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "project"=>{"name"=>"test"}, "commit"=>"Create Project"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test"], ["created_at", "2015-03-19 22:00:19.323495"], ["updated_at", "2015-03-19 22:00:19.323495"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mMembership Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "memberships" WHERE ("memberships"."user_id" = 556 AND "memberships"."project_id" = 252) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memberships" ("user_id", "role", "project_id") VALUES ($1, $2, $3) RETURNING "id"  [["user_id", 556], ["role", "Owner"], ["project_id", 252]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/252/tasks
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms)
+Started GET "/projects/252/tasks" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by TasksController#index as HTML
+  Parameters: {"project_id"=>"252"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 252]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1  [["project_id", 252]]
+  Rendered tasks/index.html.erb within layouts/application (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+Started GET "/projects/252/tasks/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by TasksController#new as HTML
+  Parameters: {"project_id"=>"252"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 252]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered tasks/_form.html.erb (7.4ms)
+  Rendered tasks/new.html.erb within layouts/application (10.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.5ms)
+Started POST "/projects/252/tasks" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "task"=>{"description"=>"stuff", "due_date"=>"2015-01-01"}, "commit"=>"Create Task", "project_id"=>"252"}
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 252]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("description", "due_date", "project_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["description", "stuff"], ["due_date", "2015-01-01"], ["project_id", 252], ["created_at", "2015-03-19 22:00:19.367190"], ["updated_at", "2015-03-19 22:00:19.367190"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/projects/252/tasks/125
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/projects/252/tasks/125" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by TasksController#show as HTML
+  Parameters: {"project_id"=>"252", "id"=>"125"}
+  [1m[35mProject Load (0.1ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", 252]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."project_id" = $1 AND "tasks"."id" = $2 LIMIT 1  [["project_id", 252], ["id", 125]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."task_id" = $1[0m  [["task_id", 125]]
+  Rendered tasks/show.html.erb within layouts/application (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 556]]
+Completed 200 OK in 17ms (Views: 6.6ms | ActiveRecord: 1.9ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered layouts/_public.html.erb (0.8ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+Started GET "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#new as HTML
+  Rendered registrations/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_public.html.erb (0.9ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/sign-up" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Test", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testman@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Test"], ["last_name", "Man"], ["email", "testman@example.com"], ["password_digest", "$2a$04$lzHn8AnYgkCpURcWhRZ9pe3nVbRcGXKvjFOyJD1sztehyJ3mlASU2"], ["created_at", "2015-03-19 22:00:19.412692"], ["updated_at", "2015-03-19 22:00:19.412692"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/projects/new
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/projects/new" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by ProjectsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered projects/_form.html.erb (0.9ms)
+  Rendered projects/new.html.erb within layouts/application (1.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+Started GET "/users" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+Started GET "/users/557/edit" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"557"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  Rendered shared/_errors.html.erb (0.0ms)
+  Rendered users/_form.html.erb (3.1ms)
+  Rendered users/edit.html.erb within layouts/application (5.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1  [["user_id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.4ms)
+Started PATCH "/users/557" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Joke", "last_name"=>"Man", "email"=>"testman@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"557"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'testman@example.com' AND "users"."id" != 557) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "first_name" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["first_name", "Joke"], ["password_digest", "$2a$04$RewTctolcD/d9efKfi3qseZrAGVMZZHm8jeVpR2dqdU4z9fTy8KL6"], ["updated_at", "2015-03-19 22:00:19.469097"], ["id", 557]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/users
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+Started GET "/users" for 127.0.0.1 at 2015-03-19 16:00:19 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "memberships" ON "projects"."id" = "memberships"."project_id" WHERE "memberships"."user_id" = $1[0m  [["user_id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 557]]
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Project X"], ["created_at", "2015-03-19 22:00:19.480759"], ["updated_at", "2015-03-19 22:00:19.480759"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["description", "My Task"], ["created_at", "2015-03-19 22:00:19.483235"], ["updated_at", "2015-03-19 22:00:19.483235"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["first_name", "Joe"], ["last_name", "Random"], ["email", "jr@aol.com"], ["password_digest", "$2a$04$P4Hu2.Z64M1WwkUPbp5jXuOFgk7IlL1FMnBatAWNe/VMkDMXfyFzy"], ["created_at", "2015-03-19 22:00:19.488300"], ["updated_at", "2015-03-19 22:00:19.488300"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."email" = 'jr@aol.com' AND "users"."id" != 558) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Joe"], ["last_name", "Random"], ["email", "jr@aol.com"], ["password_digest", "$2a$04$usKO761xZbegwKGGnKeZAO5bDyBN6h2j0tMoQcKamPzWY9uExLkbO"], ["created_at", "2015-03-19 22:00:19.493051"], ["updated_at", "2015-03-19 22:00:19.493051"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'jr@aol.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
