@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :authorize
 
+  def authorize_project
+    if current_user.id != @project.memberships.user_id
+      flash[:error] = "You do not have access to that project"
+      redirect_to projects_path
+    end
+  end
+
   def current_user
     if session[:user_id].present?
       User.find(session[:user_id])
