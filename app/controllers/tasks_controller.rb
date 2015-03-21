@@ -1,13 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_project, only: [:index, :show, :new, :create, :edit]
   before_action :authorize
+  before_action :authorize_project, only: [:index]
 
   def index
     @tasks = @project.tasks.all
-    unless @project.users.pluck(:id).include?(current_user.id)
-      flash[:error] = "You do not have access to that project"
-      redirect_to projects_path
-    end
   end
 
   def show

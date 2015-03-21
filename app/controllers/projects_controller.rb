@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authorize
+  before_action :authorize_project, only:[:show]
 
   def index
     @projects = current_user.projects
@@ -37,10 +38,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    unless @project.users.pluck(:id).include?(current_user.id)
-      flash[:error] = "You do not have access to that project"
-      redirect_to projects_path
-    end
   end
 
   def destroy

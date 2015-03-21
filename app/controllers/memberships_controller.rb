@@ -1,12 +1,9 @@
 class MembershipsController < ApplicationController
   before_action :set_project
+  before_action :authorize_project, only: [:index]
 
   def index
     @membership = @project.memberships.new
-    unless @project.users.pluck(:id).include?(current_user.id)
-      flash[:error] = "You do not have access to that project"
-      redirect_to projects_path
-    end
   end
 
   def create

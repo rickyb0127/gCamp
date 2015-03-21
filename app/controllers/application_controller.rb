@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authorize
 
   def authorize_project
-    if current_user.id != @project.memberships.user_id
+    unless @project.users.pluck(:id).include?(current_user.id)
       flash[:error] = "You do not have access to that project"
       redirect_to projects_path
     end
