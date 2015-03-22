@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :owner_or_admin
   before_action :authorize
+  before_filter :store_location
+
+  def store_location
+    if (!request.fullpath.match("/sign-in") && !request.xhr?)
+      session[:user_return_to] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for
+    session[:user_return_to] || request.referrer || root_path
+  end
 
   def authorize_project
     unless @project.users.pluck(:id).include?(current_user.id)
