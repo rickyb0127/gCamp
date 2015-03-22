@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :set_project
   before_action :authorize_project, only: [:index]
-  before_action :authorize_owner, only: [:create, :update, :destroy]
+  before_action :authorize_owner, only: [:create, :update]
 
   def index
     @membership = @project.memberships.new
@@ -31,7 +31,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.find(params[:id])
     @membership.destroy
     flash[:notice] = @membership.user.full_name + " " + "was successfully removed"
-    redirect_to project_memberships_path(@project)
+    redirect_to projects_path
   end
 
   private
