@@ -49,7 +49,7 @@
         <div class = "col-md-offset-2 col-md-4">
           <div class = "well">
             <div class = "col-md-offset-4">
-              <%= link_to "Delete User", user_path(@user), method: :delete, class: "btn btn-danger" %>
+              <%= link_to "Delete User", user_path(@user), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} %>
             </div>
           </div>
         </div>

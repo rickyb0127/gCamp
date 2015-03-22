@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  
+  before_action :require_login, only: [:edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     flash[:notice] = "User was successfully deleted"
-    redirect_to users_path
+    redirect_to "/"
   end
 
   private
@@ -51,5 +52,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def require_login
+    unless current_user.id == @user.id
+      render file: 'public/404.html', status: :not_found, layout: false
+    end
   end
 end
