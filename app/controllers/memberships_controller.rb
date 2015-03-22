@@ -46,7 +46,7 @@ class MembershipsController < ApplicationController
   end
 
   def authorize_owner
-    unless @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"]
+    unless @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"] || current_user.admin == true
       flash[:error] = "You do not have access"
       redirect_to project_path(@project)
     end

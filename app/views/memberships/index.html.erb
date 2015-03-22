@@ -8,7 +8,7 @@
   <li class="active">Memberships</li>
 </ol>
 
-<% if @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"] %>
+<% if @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"] || current_user.admin == true %>
 
   <% if @membership.errors.any? %>
   <div class="row">

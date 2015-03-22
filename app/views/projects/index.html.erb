@@ -13,6 +13,18 @@
     </tr>
   </thead>
 
+  <% if current_user.admin == true %>
+  <tbody>
+    <% @all_projects.each do |ap| %>
+    <tr>
+      <td><%= link_to ap.name, project_path(ap) %></td>
+      <td><%= link_to ap.tasks.count, project_tasks_path(ap) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% else %>
+
     <tbody>
       <% @projects.each do |project| %>
       <tr>
@@ -22,3 +34,5 @@
       </tr>
     </tbody>
 </table>
+
+<% end %>
