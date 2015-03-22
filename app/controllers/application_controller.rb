@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user
+  helper_method :owner_or_admin
   before_action :authorize
 
   def authorize_project
@@ -21,6 +22,13 @@ class ApplicationController < ActionController::Base
     unless current_user
       flash[:error] = "You must sign in"
       redirect_to sign_in_path
+    end
+  end
+
+  def owner_or_admin
+    unless current_user.admin == true || @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"]
+      flash[:error] = "You do not have access"
+      redirect_to project_path(@project)
     end
   end
 end

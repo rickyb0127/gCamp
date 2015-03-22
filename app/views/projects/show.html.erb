@@ -1,8 +1,11 @@
 <div class = "page-header">
   <h1><%= @project.name %>
-    <div class="pull-right">
-      <%= link_to "Edit", edit_project_path, class: "btn btn-info" %>
-    </div>
+    <% if current_user.admin == true || @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"] %>
+      <div class="pull-right">
+        <%= link_to "Edit", edit_project_path, class: "btn btn-info" %>
+      </div>
+    <% else %>
+    <% end %>
   </h1>
 </div>
 
@@ -15,9 +18,12 @@
 <p><%= link_to pluralize(@project.tasks.count, "Task"), project_tasks_path(@project) %></p>
 <p><%= link_to pluralize(@project.memberships.count, "Membership"), project_memberships_path(@project) %></p>
 
-<div class="well">
-  <h4>Delete</h4>
-  <p>Deleting this project will also delete <%= pluralize(@project.memberships.count, "membership") %>,
-  <%= pluralize(@project.tasks.count, "task") %> and associated comments. </p>
-  <p><%= link_to "Delete", project_path, data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" %><p>
-</div>
+<% if current_user.admin == true || @project.memberships.where(user_id: current_user.id).pluck(:role) == ["Owner"] %>
+  <div class="well">
+    <h4>Delete</h4>
+    <p>Deleting this project will also delete <%= pluralize(@project.memberships.count, "membership") %>,
+    <%= pluralize(@project.tasks.count, "task") %> and associated comments. </p>
+    <p><%= link_to "Delete", project_path, data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" %><p>
+  </div>
+<% else %>
+<% end %>
