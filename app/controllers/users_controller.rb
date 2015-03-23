@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize
-  before_action :require_login, only: [:edit, :update, :destroy]
+  before_action :require_login_or_admin, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -54,8 +54,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
-  def require_login
-    unless current_user.id == @user.id
+  def require_login_or_admin
+    unless current_user.id == @user.id || current_user.admin == true
       render file: 'public/404.html', status: :not_found, layout: false
     end
   end
