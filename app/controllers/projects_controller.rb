@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :authorize
   before_action :set_project, only: [:edit, :update, :show, :destroy]
-  before_action :owner_or_admin, only:[:edit, :destroy, :show]
   before_action :authorize_project, only:[:show]
+  before_action :owner_or_admin, only:[:edit, :destroy, :show]
 
   def index
     @projects = current_user.projects
