@@ -3,7 +3,7 @@ class MembershipsController < ApplicationController
   before_action :authorize_project, only: [:index]
   before_action :authorize_owner, only: [:create, :update]
   before_action :owner_or_admin, only: [:destroy]
-  before_action :ensure_at_least_one_owner, only: [:update]
+  before_action :ensure_at_least_one_owner, only: [:update, :destroy]
 
   def index
     @membership = @project.memberships.new
