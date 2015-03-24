@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for
-    session[:user_return_to] || request.referrer || root_path
+    session[:user_return_to] || request.referrer || projects_path
   end
 
   def authorize_project

@@ -9,7 +9,11 @@ class AuthenticationController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to after_sign_in_path_for()
+      if after_sign_in_path_for() == "/"
+        redirect_to projects_path
+      else
+        redirect_to after_sign_in_path_for()
+      end
       flash[:notice] = "You are successfully signed in"
     else
       @user = User.new
