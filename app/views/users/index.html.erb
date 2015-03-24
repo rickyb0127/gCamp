@@ -18,8 +18,7 @@
           <% if current_user.admin == true %>
             <td><%= mail_to user.email %></td>
             <td><%= link_to "Edit", edit_user_path(user) %></td>
-
-          <% elsif current_user.id == user.id || user.memberships.pluck(:project_id) == current_user.memberships.pluck(:project_id) %>
+          <% elsif (user.memberships.pluck(:project_id) & current_user.memberships.pluck(:project_id)).empty? == false %>
               <td><%= mail_to user.email %></td>
             <% if current_user.id == user.id %>
               <td><%= link_to "Edit", edit_user_path(user) %></td>

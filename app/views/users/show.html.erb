@@ -16,7 +16,7 @@
     <dd><%= @user.last_name.capitalize %></dd>
 </dl>
 
-<% if current_user.admin == true || current_user.id == @user.id || @user.memberships.pluck(:project_id) == current_user.memberships.pluck(:project_id) %>
+<% if current_user.admin == true || current_user.id == @user.id || (@user.memberships.pluck(:project_id) & current_user.memberships.pluck(:project_id)).empty? == false %>
   <dl class="dl-horizontal">
     <dt>Email </dt>
       <dd><%= mail_to @user.email %></dd>
