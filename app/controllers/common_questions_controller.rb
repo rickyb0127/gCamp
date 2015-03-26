@@ -1,4 +1,6 @@
 class CommonQuestionsController < ApplicationController
+  skip_before_action :authorize
+
   def index
     @question =[
       CommonQuestion.new("What is gCamp?", "gCamp is an awesome tool that is going to change your life.

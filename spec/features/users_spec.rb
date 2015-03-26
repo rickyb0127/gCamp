@@ -15,6 +15,8 @@ feature 'Users' do
     end
 
     visit users_path
+    within (".table") do click_on 'Test Man'
+    end
     click_on 'Edit'
     fill_in 'First Name', with: 'Joke'
     fill_in 'Password', with: 'new'
@@ -23,5 +25,4 @@ feature 'Users' do
 
     expect(page).to have_content('User was successfully updated')
   end
-
 end

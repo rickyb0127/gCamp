@@ -22,3 +22,10 @@
       <dd><%= mail_to @user.email %></dd>
   </dl>
 <% end %>
+
+<% if current_user.id == @user.id %>
+  <dl class="dl-horizontal">
+    <dt>Pivotal Tracker Token </dt>
+      <dd><%= @user.pivotal_tracker_token[0..3] + @user.pivotal_tracker_token.gsub(/./, '*') %></dd>
+  </dl>
+<% end %>
