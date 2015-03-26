@@ -25,9 +25,7 @@ describe MembershipsController do
         }.to change { Membership.count }.by(1)
 
         expect(Membership.last.role).to eq "Member"
-# binding.pry
-#         expect(flash[:notice]).to match(/Joe Person was successfully added/)
-#         expect(response).to redirect_to project_memberships_path(@project)
+        expect(response.status).to eq(302)
       end
     end
   end
@@ -41,10 +39,7 @@ describe MembershipsController do
         session[:user_id] = user.id
         post :create, project_id: project
         Membership.last.update(role: "Owner")
-# binding.pry
-#       expect(Membership.last.role).to eq "Owner"
-#       expect(flash[:notice]).to match(/Joe Person was successfully updated/)
-#       expect(response).to redirect_to project_memberships_path(@project)
+        expect(response.status).to eq(302)
       end
     end
   end
@@ -60,9 +55,6 @@ describe MembershipsController do
         Membership.last.destroy
 
         expect(Membership.all).to eq []
-# binding.pry
-#         expect(flash[:notice]).to match(/Joe Person was successfully removed/)
-#         expect(response).to redirect_to projects_path
       end
     end
   end
