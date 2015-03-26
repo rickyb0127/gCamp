@@ -19,16 +19,19 @@
             <td><%= mail_to user.email %></td>
             <td><%= link_to "Edit", edit_user_path(user) %></td>
           <% elsif (user.memberships.pluck(:project_id) & current_user.memberships.pluck(:project_id)).empty? == false %>
-              <td><%= mail_to user.email %></td>
+            <td><%= mail_to user.email %></td>
             <% if current_user.id == user.id %>
               <td><%= link_to "Edit", edit_user_path(user) %></td>
             <% else %>
               <td></td>
             <% end %>
+          <% elsif current_user.id == user.id %>
+            <td><%= mail_to user.email %></td>
+            <td><%= link_to "Edit", edit_user_path(user) %></td>
           <% else %>
             <td></td>
             <td></td>
-            <% end %>
+          <% end %>
         </tr>
           <% end %>
       </tbody>

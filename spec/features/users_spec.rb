@@ -3,21 +3,18 @@ require 'rails_helper'
 feature 'Users' do
 
   scenario 'User can see a flash message' do
+    user = create_user
 
     visit root_path
-    click_on 'Sign Up'
-    fill_in 'First Name', with: 'Test'
-    fill_in 'Last Name', with: "Man"
-    fill_in 'Email', with: 'testman@example.com'
-    fill_in 'Password', with: 'new'
-    fill_in 'Password Confirmation', with: 'new'
-    within (".well") do click_on 'Sign Up'
+    click_on 'Sign In'
+    fill_in 'Email', with: 'jp@example.com'
+    fill_in 'Password', with: 'wookie'
+    within (".well") do click_on 'Sign In'
     end
 
     visit users_path
-    within (".table") do click_on 'Test Man'
+    within (".table") do click_on 'Edit'
     end
-    click_on 'Edit'
     fill_in 'First Name', with: 'Joke'
     fill_in 'Password', with: 'new'
     fill_in 'Password Confirmation', with: 'new'
