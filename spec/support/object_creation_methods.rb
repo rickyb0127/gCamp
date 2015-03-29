@@ -21,6 +21,6 @@ def create_membership(options={})
     project_id: create_project.id,
     role: "Member"
   }
-  
+
   Membership.create!(defaults.merge(options))
 end
