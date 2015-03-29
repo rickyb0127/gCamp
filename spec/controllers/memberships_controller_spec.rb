@@ -7,7 +7,7 @@ describe MembershipsController do
       project = create_project
       membership = create_membership(user_id: user.id, project_id: project.id)
       session[:user_id] = user.id
-      get :index, { :project_id => project.id }
+      get :index, project_id: project.id
 
       expect(assigns(:membership)).to be_a_new(Membership)
     end
@@ -29,7 +29,7 @@ describe MembershipsController do
       end
     end
   end
-
+  #
   # describe "PATCH #update" do
   #   describe "on success" do
   #     it "updates a membership with valid parameters" do

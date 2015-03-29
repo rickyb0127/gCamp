@@ -24,3 +24,13 @@ def create_membership(options={})
 
   Membership.create!(defaults.merge(options))
 end
+
+def create_task(options={})
+  defaults = {
+    description: "do stuff",
+    complete: false,
+    due_date: '01/01/2016'
+  }
+
+  Task.create!(defaults.merge(options))
+end
