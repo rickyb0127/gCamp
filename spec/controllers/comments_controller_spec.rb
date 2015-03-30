@@ -17,5 +17,21 @@ describe CommentsController do
         expect(response.status).to eq(302)
       end
     end
+
+    describe "on failure" do
+      it "does not create a new comment without valid parameters" do
+        user = create_user
+        project = create_project
+        session[:user_id] = user.id
+        task = create_task(project_id: project.id)
+
+        expect {
+          post :create, project_id: project.id, task_id: task.id, comment: { body: " " }
+        }.to change { Comment.count }.by(0)
+
+        expect(flash[:error]).to eq "comment can't be blank"
+        expect(response.status).to eq(302)
+      end
+    end
   end
 end
