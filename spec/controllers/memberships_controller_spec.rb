@@ -21,11 +21,25 @@ describe MembershipsController do
           project = create_project
           membership = create_membership(project, user)
           session[:user_id] = user.id
-          post :create, project_id: project
+          post :create, project_id: project.id
         }.to change { Membership.count }.by(1)
 
         expect(Membership.last.role).to eq "Member"
         expect(response.status).to eq(302)
+      end
+    end
+
+    describe "on failure" do
+      it "does not create a new membership without valid parameters" do
+        user = create_user(email: "new@example.com")
+        project = create_project
+        session[:user_id] = user.id
+        create_membership(project, user, role: "Owner")
+
+        expect {
+          post :create, project_id: project.id, membership: { role: nil }
+        }.to_not change { Membership.count }
+        expect(response).to render_template "index"
       end
     end
   end
@@ -45,6 +59,20 @@ describe MembershipsController do
         }.to change { membership2.reload.role }.from('Owner').to('Member')
 
         expect(flash[:notice]).to eq 'Joe Person was successfully updated'
+        expect(response.status).to eq(302)
+      end
+    end
+
+    describe "on failure" do
+      it "does not update a new membership without valid parameters" do
+        user = create_user(email: "new@example.com")
+        project = create_project
+        session[:user_id] = user.id
+        membership = create_membership(project, user, role: "Owner")
+
+        expect {
+          patch :update, project_id: project.id, id: membership.id, membership: { role: nil }
+        }.to_not change { Membership.last.role }
         expect(response.status).to eq(302)
       end
     end
