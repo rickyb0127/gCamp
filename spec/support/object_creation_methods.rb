@@ -15,10 +15,10 @@ def create_project(options={})
   Project.create!(defaults.merge(options))
 end
 
-def create_membership(options={})
+def create_membership(project, user, options={})
   defaults = {
-    user_id: create_user.id,
-    project_id: create_project.id,
+    user_id: user.id,
+    project_id: project.id,
     role: "Member"
   }
 

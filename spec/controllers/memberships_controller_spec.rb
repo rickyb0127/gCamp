@@ -5,7 +5,7 @@ describe MembershipsController do
     it "assigns a new membership for project" do
       user = create_user(email: "foo@example.com")
       project = create_project
-      membership = create_membership(user_id: user.id, project_id: project.id)
+      membership = create_membership(project, user)
       session[:user_id] = user.id
       get :index, project_id: project.id
 
@@ -19,7 +19,7 @@ describe MembershipsController do
         expect {
           user = create_user(email: "new@example.com")
           project = create_project
-          membership = create_membership
+          membership = create_membership(project, user)
           session[:user_id] = user.id
           post :create, project_id: project
         }.to change { Membership.count }.by(1)
@@ -29,33 +29,33 @@ describe MembershipsController do
       end
     end
   end
-  #
-  # describe "PATCH #update" do
-  #   describe "on success" do
-  #     it "updates a membership with valid parameters" do
-  #       user = create_user(email: "boom@example.com")
-  #       session[:user_id] = user.id
-  #       project = create_project
-  #       user2 = create_user(email: "random@example.com")
-  #       membership = create_membership(user_id: user.id, project_id: project.id, role: 'Owner')
-  #       membership2 = create_membership(user_id: user.id, project_id: project.id, role: 'Member')
-  #
-  #       expect {
-  #         patch :update, project_id: project.id, id: membership2.id, membership:{ role: 'Owner' }
-  #       }.to change { membership2.reload.role }.from('Member').to('Owner')
-  #
-  #       expect(flash[:notice]).to eq 'Membership was successfully updated'
-  #       expect(response.status).to eq(302)
-  #     end
-  #   end
-  # end
+
+  describe "PATCH #update" do
+    describe "on success" do
+      it "updates a membership with valid parameters" do
+        user = create_user(email: "boom@example.com")
+        session[:user_id] = user.id
+        project = create_project
+        user2 = create_user(email: "random@example.com")
+        membership = create_membership(project, user, role: 'Owner')
+        membership2 = create_membership(project, user2, role: 'Owner')
+
+        expect {
+          patch :update, project_id: project.id, id: membership2.id, membership:{ role: 'Member' }
+        }.to change { membership2.reload.role }.from('Owner').to('Member')
+
+        expect(flash[:notice]).to eq 'Joe Person was successfully updated'
+        expect(response.status).to eq(302)
+      end
+    end
+  end
 
   describe "DELETE #destroy" do
     describe "on success" do
       it "deletes a membership" do
         project = create_project
         user = create_user(email: "snail@example.com")
-        membership = create_membership
+        membership = create_membership(project, user)
         session[:user_id] = user.id
 
         delete :destroy, project_id: project.id, id: membership.id

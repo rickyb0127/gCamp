@@ -5,8 +5,8 @@ describe ProjectsController do
   describe "GET #index" do
     it "lists all projects" do
       user = create_user(email: "wookie@example.com")
-      membership = create_membership
       project = create_project
+      membership = create_membership(project, user)
       session[:user_id] = user.id
       get :index
 
@@ -47,7 +47,7 @@ describe ProjectsController do
         user = create_user(email: "new@example.com")
         session[:user_id] = user.id
         project = create_project
-        membership = create_membership(user_id: user.id, project_id: project.id, role: 'Owner')
+        membership = create_membership(project, user, role: 'Owner')
 
         get :edit, id: project.id
 
@@ -63,7 +63,7 @@ describe ProjectsController do
         user = create_user(email: "random@example.com")
         session[:user_id] = user.id
         project = create_project
-        membership = create_membership(user_id: user.id, project_id: project.id, role: 'Owner')
+        membership = create_membership(project, user, role: 'Owner')
 
         expect {
           patch :update, id: project.id, project:{ name: 'updated project' }
@@ -81,7 +81,7 @@ describe ProjectsController do
         user = create_user(email: "green@example.com")
         session[:user_id] = user.id
         project = create_project
-        membership = create_membership(user_id: user.id, project_id: project.id, role: 'Owner')
+        membership = create_membership(project, user, role: 'Owner')
 
         get :show, id: project.id
 
@@ -95,12 +95,10 @@ describe ProjectsController do
       it "deletes a membership" do
         project = create_project
         user = create_user(email: "snail@example.com")
-        membership = create_membership(user_id: user.id, project_id: project.id, role: 'Owner')
+        membership = create_membership(project, user, role: 'Owner')
         session[:user_id] = user.id
 
         delete :destroy, id: project.id
-
-        Project.last.destroy
 
         expect(Project.all).to eq []
       end
