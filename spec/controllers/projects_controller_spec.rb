@@ -39,6 +39,22 @@ describe ProjectsController do
         expect(response.status).to eq(302)
       end
     end
+
+    describe "on failure" do
+      it "does not creates a new project without valid parameters" do
+        user = create_user
+        session[:user_id] = user.id
+
+        expect {
+          post :create, project: { name: 'new' }
+        }.to change { Project.count }.by(1)
+
+        expect(flash[:notice]).to eq 'Project was successfully created'
+        expect(user.memberships.last.role).to eq 'Owner'
+        expect(response).to redirect_to project_tasks_path(user.projects.last)
+        expect(response.status).to eq(302)
+      end
+    end
   end
 
   describe "GET #edit" do
