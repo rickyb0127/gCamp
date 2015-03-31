@@ -35,4 +35,27 @@
     </tbody>
 </table>
 
+<% if current_user.pivotal_tracker_token %>
+  <div class = "page-header">
+    <h1>Pivotal Tracker Projects</h1>
+  </div>
+
+  <table class="table">
+
+    <thead>
+      <th>Name</th>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% @tracker_projects.each do |tracker_project| %>
+        <td><%= link_to tracker_project[:name], tracker_project_path(tracker_project[:id], name: tracker_project[:name]) %></td>
+      </tr>
+
+        <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
 <% end %>

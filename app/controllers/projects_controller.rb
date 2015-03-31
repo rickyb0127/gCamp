@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects
     @all_projects = Project.all
     @task = Task.new
+    tracker_api = TrackerAPI.new
+    if current_user.pivotal_tracker_token
+      @tracker_projects = tracker_api.projects(current_user.pivotal_tracker_token)
+    end
   end
 
   def new

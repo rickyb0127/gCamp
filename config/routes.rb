@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'sign-in', to: 'authentication#new'
   post 'sign-in', to: 'authentication#create'
 
+  resources :tracker_projects, only: [:show]
   resources :users
   resources :projects do
     resources :tasks do
